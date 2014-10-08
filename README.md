@@ -15,3 +15,10 @@ Run the make command in project root directory.
 ##Dependecies
 1. zmq library.
 2. Protocol Buffer.
+
+
+##Example
+ ```shell
+    server 5 ~/Desktop tcp://*:4444
+    client tcp://localhost:4444 f.mp4
+```
