@@ -1,0 +1,10 @@
+package zmq_pb;
+message FileMeta{
+	optional string name = 1;
+	optional int32 size = 2;
+}
+message File{
+	optional bytes buffer = 1;
+	optional bool	isMore = 2;
+	optional int32 bufferSize = 3;
+}
