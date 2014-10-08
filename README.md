@@ -18,9 +18,9 @@ Run the make command in project root directory.
 
 
 ##Example
-Usage : server <thred pool size> <path> <url>    
-        client <url:port> <file name>    
  ```shell
+    Usage : server <thred pool size> <path> <url>
+            client <url:port> <file name>
     server 5 ~/Desktop tcp://*:4444
     client tcp://localhost:4444 f.mp4
 ```
