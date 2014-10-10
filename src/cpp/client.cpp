@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
         char fileBuffer[BUFSIZ];
         File fl;
         while(true){
-            int readSize = read(fd, fileBuffer, 6048);
+            int readSize = read(fd, fileBuffer, BUFSIZ);
             //Now Send File
             if(readSize > 0){
                 fl.set_ismore(true);

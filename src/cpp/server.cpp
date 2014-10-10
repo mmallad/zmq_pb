@@ -19,7 +19,7 @@ void worker::doWork(){
         clog << "Name : " << fileMeta.name() << " Size : " << fileMeta.size() << endl;
         char fileName[1024];
         snprintf(fileName, 1024, "%s/%s",this->path_.c_str(),fileMeta.name().c_str());
-        fstream output(fileName, ios::out | ios::app | ios::binary);
+
         File fl;
         while(request.more()){
             worker_.recv(&request);
@@ -28,11 +28,13 @@ void worker::doWork(){
             fl.ParseFromArray(buffer,bufferSize);
             if(fl.ismore()){
                 const string fData = fl.buffer();
+                fstream output(fileName, ios::out | ios::app | ios::binary);
                 output.write(fData.c_str(), fl.buffersize());
+                output.close();
                 clog << "Written Size : " << fl.buffersize() << endl;
             }
         }
-        output.close();
+
         //Send Reply
         message_t reply (3);
         memcpy((void *)reply.data(), "Ok", 3);
